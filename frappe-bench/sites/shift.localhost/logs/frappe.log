@@ -1,0 +1,6 @@
+2026-05-13 15:47:23,685 ERROR frappe New Exception collected in error log
+Site: shift.localhost
+Form Dict: {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********', 'cmd': 'shift_management.api.create_employee'}
+2026-05-13 15:49:53,298 ERROR frappe New Exception collected in error log
+Site: shift.localhost
+Form Dict: {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********', 'cmd': 'shift_management.api.create_employee'}

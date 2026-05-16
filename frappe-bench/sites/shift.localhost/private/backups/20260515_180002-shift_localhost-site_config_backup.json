@@ -1,0 +1,8 @@
+{
+ "allow_cors": "\"*\"",
+ "db_name": "_5dd3849cbeb50760",
+ "db_password": "NqOLex1Lh9JPyGK0",
+ "db_type": "mariadb",
+ "developer_mode": 1,
+ "enable_password_policy": 0
+}

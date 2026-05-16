@@ -1,0 +1,157 @@
+2026-05-13 15:13:33,714 DEBUG cd frappe-bench && uv venv env --seed --python python3.12
+2026-05-13 15:13:35,404 LOG Getting frappe
+2026-05-13 15:13:35,404 DEBUG cd frappe-bench/apps && git clone https://github.com/frappe/frappe.git --branch version-15 --depth 1 --origin upstream
+2026-05-13 15:13:49,651 LOG Installing frappe
+2026-05-13 15:13:49,653 DEBUG cd /home/srikar/Desktop/shift_management_system/frappe-bench && uv pip install --quiet --upgrade -e /home/srikar/Desktop/shift_management_system/frappe-bench/apps/frappe  --python /home/srikar/Desktop/shift_management_system/frappe-bench/env/bin/python
+2026-05-13 15:13:51,997 DEBUG cd /home/srikar/Desktop/shift_management_system/frappe-bench/apps/frappe && yarn install --check-files
+2026-05-13 15:13:58,390 DEBUG cd frappe-bench && bench build
+2026-05-13 15:13:58,529 INFO /home/srikar/.local/bin/bench build
+2026-05-13 15:14:17,604 LOG setting up backups
+2026-05-13 15:14:17,611 LOG backups were set up
+2026-05-13 15:14:17,611 INFO Bench frappe-bench initialized
+2026-05-13 15:15:14,957 INFO /home/srikar/.local/bin/bench new-app --help
+2026-05-13 15:16:06,378 INFO /home/srikar/.local/bin/bench new-app shift_management
+2026-05-13 15:16:06,382 LOG creating new app shift_management
+2026-05-13 15:16:50,647 LOG Installing shift_management
+2026-05-13 15:16:50,649 DEBUG cd /home/srikar/Desktop/shift_management_system/frappe-bench && uv pip install --quiet --upgrade -e /home/srikar/Desktop/shift_management_system/frappe-bench/apps/shift_management  --python /home/srikar/Desktop/shift_management_system/frappe-bench/env/bin/python
+2026-05-13 15:16:51,113 DEBUG bench build --app shift_management
+2026-05-13 15:16:51,221 INFO /home/srikar/.local/bin/bench build --app shift_management
+2026-05-13 15:17:14,839 INFO /home/srikar/.local/bin/bench new-site shift.localhost --db-root-password password --admin-password admin
+2026-05-13 15:18:14,041 INFO /home/srikar/.local/bin/bench new-site shift.localhost --db-root-password password --admin-password admin --force
+2026-05-13 15:18:40,913 INFO /home/srikar/.local/bin/bench new-site shift.localhost --db-root-password password --admin-password admin --force
+2026-05-13 15:19:01,086 INFO /home/srikar/.local/bin/bench start
+2026-05-13 15:19:24,460 INFO /home/srikar/.local/bin/bench start
+2026-05-13 15:19:24,683 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 15:19:24,690 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 15:19:24,691 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 15:19:24,702 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 15:19:38,549 INFO /home/srikar/.local/bin/bench new-site shift.localhost --db-root-password password --admin-password admin --force
+2026-05-13 15:20:20,347 INFO /home/srikar/.local/bin/bench --site shift.localhost install-app shift_management
+2026-05-13 15:22:31,990 INFO /home/srikar/.local/bin/bench --site shift.localhost set-config developer_mode 1
+2026-05-13 15:23:11,436 INFO /home/srikar/.local/bin/bench --site shift.localhost execute shift_management.setup_models.create_doctypes
+2026-05-13 15:23:22,427 INFO /home/srikar/.local/bin/bench --site shift.localhost set-config allow_cors "*"
+2026-05-13 15:31:04,605 INFO /home/srikar/.local/bin/bench use shift.localhost
+2026-05-13 15:52:18,720 INFO /home/srikar/.local/bin/bench --site shift.localhost migrate
+2026-05-13 16:05:22,612 INFO /home/srikar/.local/bin/bench --site shift.localhost set-config enable_password_policy 0
+2026-05-13 16:05:52,127 INFO /home/srikar/.local/bin/bench --site shift.localhost execute frappe.db.set_single_value('System Settings', 'enable_password_policy', 0)
+2026-05-13 16:06:09,854 INFO /home/srikar/.local/bin/bench --site shift.localhost execute shift_management.disable_pwd_policy.disable_password_policy
+2026-05-13 16:24:02,196 INFO /home/srikar/.local/bin/bench --site shift.localhost migrate
+2026-05-13 16:51:41,888 INFO /home/srikar/.local/bin/bench --site shift.localhost execute import frappe; print(frappe.get_all('Work Shift', fields=['name', 'shift_name', 'is_rotational']))
+2026-05-13 16:52:11,001 INFO /home/srikar/.local/bin/bench --site shift.localhost execute import frappe; from frappe.custom.doctype.custom_field.custom_field import create_custom_fields; create_custom_fields({'Shift Assignment': [{'fieldname': 'follow_rotation', 'label': 'Follow Rotation', 'fieldtype': 'Check', 'insert_after': 'shift'}]})
+2026-05-13 16:53:51,468 INFO /home/srikar/.local/bin/bench --site shift.localhost migrate
+2026-05-13 17:01:30,431 INFO /home/srikar/.local/bin/bench --site shift.localhost execute import frappe; print([s.name for s in frappe.get_all('Work Shift')])
+2026-05-13 17:10:50,559 INFO /home/srikar/.local/bin/bench --site shift.localhost migrate
+2026-05-13 17:40:06,776 INFO /home/srikar/.local/bin/bench restart
+2026-05-13 17:40:18,949 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:15:08,686 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:15:09,166 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:15:09,172 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:15:09,174 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:15:09,199 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:39:28,793 INFO /home/srikar/.local/bin/bench --site shift_management.localhost execute frappe.db.get_list --args Work Shift, ["shift_name", "is_rotational"]
+2026-05-13 18:39:39,256 INFO /home/srikar/.local/bin/bench --site shift_management.localhost execute frappe.get_all("Work Shift", fields=["shift_name", "is_rotational"])
+2026-05-13 18:40:00,397 INFO /home/srikar/.local/bin/bench --site shift.localhost execute frappe.get_all("Work Shift", fields=["shift_name", "is_rotational"])
+2026-05-13 18:41:19,852 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:41:20,227 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:41:20,235 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:41:20,253 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:41:20,261 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:48:31,276 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:48:31,692 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:48:31,694 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:48:31,709 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:48:31,714 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:50:22,890 INFO /home/srikar/.local/bin/bench --site shift.localhost execute print(frappe.get_all('Work Shift', pluck='name'))
+2026-05-13 18:50:34,350 INFO /home/srikar/.local/bin/bench --site shift.localhost mariadb -e SELECT name FROM `tabWork Shift`
+2026-05-13 18:51:50,040 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:51:50,453 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:51:50,454 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:51:50,480 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:51:50,521 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:54:24,181 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:54:24,615 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:54:24,632 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:54:24,675 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:54:24,681 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:55:07,749 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:55:08,180 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:55:08,182 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:55:08,187 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:55:08,192 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:56:39,072 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:56:39,503 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:56:39,504 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:56:39,511 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:56:39,550 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:57:52,305 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:57:52,757 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:57:52,765 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:57:52,774 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 18:57:52,803 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:58:27,998 INFO /home/srikar/.local/bin/bench start
+2026-05-13 18:58:28,448 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 18:58:28,453 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 18:58:28,474 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 18:58:28,477 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 19:42:42,227 INFO /home/srikar/.local/bin/bench start
+2026-05-13 19:42:42,656 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 19:42:42,660 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 19:42:42,660 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 19:42:42,688 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 21:04:57,388 INFO /home/srikar/.local/bin/bench start
+2026-05-13 21:04:57,662 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 21:04:57,668 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 21:04:57,705 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 21:04:57,710 INFO /home/srikar/.local/bin/bench schedule
+2026-05-13 21:06:22,814 INFO /home/srikar/.local/bin/bench start
+2026-05-13 21:06:23,262 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-13 21:06:23,264 INFO /home/srikar/.local/bin/bench watch
+2026-05-13 21:06:23,270 INFO /home/srikar/.local/bin/bench worker
+2026-05-13 21:06:23,276 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 11:07:34,980 INFO /home/srikar/.local/bin/bench start
+2026-05-14 11:07:35,535 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-14 11:07:35,535 INFO /home/srikar/.local/bin/bench worker
+2026-05-14 11:07:35,535 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 11:07:35,540 INFO /home/srikar/.local/bin/bench watch
+2026-05-14 12:22:00,497 INFO /home/srikar/.local/bin/bench start
+2026-05-14 12:22:00,913 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-14 12:22:00,927 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 12:22:00,941 INFO /home/srikar/.local/bin/bench watch
+2026-05-14 12:22:00,955 INFO /home/srikar/.local/bin/bench worker
+2026-05-14 14:52:08,208 INFO /home/srikar/.local/bin/bench start
+2026-05-14 14:52:08,679 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 14:52:08,710 INFO /home/srikar/.local/bin/bench watch
+2026-05-14 14:52:08,713 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-14 14:52:08,728 INFO /home/srikar/.local/bin/bench worker
+2026-05-14 15:54:44,714 INFO /home/srikar/.local/bin/bench start
+2026-05-14 15:54:45,149 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 15:54:45,163 INFO /home/srikar/.local/bin/bench worker
+2026-05-14 15:54:45,168 INFO /home/srikar/.local/bin/bench watch
+2026-05-14 15:54:45,173 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-14 19:18:07,256 INFO /home/srikar/.local/bin/bench start
+2026-05-14 19:18:07,676 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 19:18:07,676 INFO /home/srikar/.local/bin/bench worker
+2026-05-14 19:18:07,719 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-14 19:18:07,727 INFO /home/srikar/.local/bin/bench watch
+2026-05-14 20:36:26,771 INFO /home/srikar/.local/bin/bench start
+2026-05-14 20:36:27,247 INFO /home/srikar/.local/bin/bench schedule
+2026-05-14 20:36:27,247 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-14 20:36:27,260 INFO /home/srikar/.local/bin/bench watch
+2026-05-14 20:36:27,260 INFO /home/srikar/.local/bin/bench worker
+2026-05-15 12:00:01,617 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-15 12:23:28,317 INFO /home/srikar/.local/bin/bench start
+2026-05-15 12:23:28,605 INFO /home/srikar/.local/bin/bench schedule
+2026-05-15 12:23:28,627 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-15 12:23:28,628 INFO /home/srikar/.local/bin/bench watch
+2026-05-15 12:23:28,630 INFO /home/srikar/.local/bin/bench worker
+2026-05-15 17:21:59,527 INFO /home/srikar/.local/bin/bench start
+2026-05-15 17:22:00,008 INFO /home/srikar/.local/bin/bench watch
+2026-05-15 17:22:00,023 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-15 17:22:00,024 INFO /home/srikar/.local/bin/bench schedule
+2026-05-15 17:22:00,036 INFO /home/srikar/.local/bin/bench worker
+2026-05-15 18:00:02,100 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-16 09:15:40,109 INFO /home/srikar/.local/bin/bench start
+2026-05-16 09:15:40,436 INFO /home/srikar/.local/bin/bench schedule
+2026-05-16 09:15:40,456 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-16 09:15:40,485 INFO /home/srikar/.local/bin/bench watch
+2026-05-16 09:15:40,489 INFO /home/srikar/.local/bin/bench worker
