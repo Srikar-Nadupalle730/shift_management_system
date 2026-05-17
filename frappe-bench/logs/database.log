@@ -2860,3 +2860,7 @@ alter table `tabDocType` add column if not exists migration_hash varchar(140)
 ALTER TABLE `tabShift Assignment` ADD COLUMN `follow_rotation` int(1) not null default 0
 2026-05-13 17:10:51,210 WARNING database DDL Query made to DB:
 alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2026-05-17 16:47:00,311 WARNING database DDL Query made to DB:
+alter table `tabDocType` add column if not exists migration_hash varchar(140)
+2026-05-17 16:47:01,763 WARNING database DDL Query made to DB:
+ALTER TABLE `tabShift Assignment` ADD COLUMN `initial_shift` varchar(140)

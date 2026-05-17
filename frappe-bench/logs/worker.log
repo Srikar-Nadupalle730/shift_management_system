@@ -368,3 +368,320 @@
 2026-05-16 09:15:41,097 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
 2026-05-16 09:16:23,716 Worker 377edd86891f4b9da624e4cacf46649e [PID 5416]: warm shut down requested
 2026-05-16 09:16:23,718 Unsubscribing from channel rq:pubsub:377edd86891f4b9da624e4cacf46649e
+2026-05-16 19:25:17,532 Worker rq:worker:f714c7d6b05144a4886ed0afa3c69418 started with PID 37678, version 1.15.1
+2026-05-16 19:25:17,533 Subscribing to channel rq:pubsub:f714c7d6b05144a4886ed0afa3c69418
+2026-05-16 19:25:17,534 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-16 19:25:17,535 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-16 19:25:17,539 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-16 19:25:17,542 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-16 19:25:39,021 Worker f714c7d6b05144a4886ed0afa3c69418 [PID 37678]: warm shut down requested
+2026-05-16 19:25:39,027 Unsubscribing from channel rq:pubsub:f714c7d6b05144a4886ed0afa3c69418
+2026-05-17 13:35:05,392 Worker rq:worker:be9895be1f8e45b1a0656b7e8b3b2496 started with PID 6058, version 1.15.1
+2026-05-17 13:35:05,392 Subscribing to channel rq:pubsub:be9895be1f8e45b1a0656b7e8b3b2496
+2026-05-17 13:35:05,395 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 13:35:05,396 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 13:35:05,398 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 13:35:05,400 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 13:45:01,719 Worker be9895be1f8e45b1a0656b7e8b3b2496 [PID 6058]: warm shut down requested
+2026-05-17 13:45:01,735 Unsubscribing from channel rq:pubsub:be9895be1f8e45b1a0656b7e8b3b2496
+2026-05-17 14:49:16,963 Worker rq:worker:2cd19dbad01e430e916edf016a8c3143 started with PID 13876, version 1.15.1
+2026-05-17 14:49:16,964 Subscribing to channel rq:pubsub:2cd19dbad01e430e916edf016a8c3143
+2026-05-17 14:49:16,967 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 14:49:16,969 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 14:49:16,972 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 14:49:16,975 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 14:57:44,769 Worker 2cd19dbad01e430e916edf016a8c3143 [PID 13876]: warm shut down requested
+2026-05-17 14:57:44,790 Unsubscribing from channel rq:pubsub:2cd19dbad01e430e916edf016a8c3143
+2026-05-17 16:11:26,594 Worker rq:worker:0741fd9191174a709ff78efefca14a52 started with PID 4676, version 1.15.1
+2026-05-17 16:11:26,594 Subscribing to channel rq:pubsub:0741fd9191174a709ff78efefca14a52
+2026-05-17 16:11:26,597 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 16:11:26,599 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 16:11:26,601 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 16:11:26,602 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 16:15:08,798 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: sai@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::5bf1fee8-9087-48fe-bae6-8cc496376dfb)
+2026-05-17 16:15:10,344 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::5bf1fee8-9087-48fe-bae6-8cc496376dfb)
+2026-05-17 16:15:10,345 Result is kept for 600 seconds
+2026-05-17 16:15:10,363 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'sai@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::9edb1c40-d7f1-4f11-9523-d41c62096d47)
+2026-05-17 16:15:11,124 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::9edb1c40-d7f1-4f11-9523-d41c62096d47)
+2026-05-17 16:15:11,124 Result is kept for 600 seconds
+2026-05-17 16:21:19,622 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: alex@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::622afe8d-66d9-4e2c-bc60-196ab5942cb0)
+2026-05-17 16:21:20,840 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::622afe8d-66d9-4e2c-bc60-196ab5942cb0)
+2026-05-17 16:21:20,840 Result is kept for 600 seconds
+2026-05-17 16:21:20,860 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'alex@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::d5331380-b51e-4524-aabb-289bd9337a9e)
+2026-05-17 16:21:21,440 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::d5331380-b51e-4524-aabb-289bd9337a9e)
+2026-05-17 16:21:21,440 Result is kept for 600 seconds
+2026-05-17 16:23:13,469 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: steve@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::fd4fca71-aee9-4e2a-ae7b-d5effedbf635)
+2026-05-17 16:23:14,569 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::fd4fca71-aee9-4e2a-ae7b-d5effedbf635)
+2026-05-17 16:23:14,569 Result is kept for 600 seconds
+2026-05-17 16:23:14,589 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'steve@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::233cb96e-2156-484b-8a65-4ad0e576c53e)
+2026-05-17 16:23:15,335 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::233cb96e-2156-484b-8a65-4ad0e576c53e)
+2026-05-17 16:23:15,336 Result is kept for 600 seconds
+2026-05-17 16:29:58,234 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 26}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::e8afd2cd-fa84-4355-b927-1fe60d6f8a63)
+2026-05-17 16:29:58,384 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::e8afd2cd-fa84-4355-b927-1fe60d6f8a63)
+2026-05-17 16:29:58,384 Result is kept for 600 seconds
+2026-05-17 16:29:58,395 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00006'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::c8fefdb7-95f8-47f5-bb43-4a0c2ea1cedf)
+2026-05-17 16:29:58,519 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::c8fefdb7-95f8-47f5-bb43-4a0c2ea1cedf)
+2026-05-17 16:29:58,520 Result is kept for 600 seconds
+2026-05-17 16:29:58,529 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'alex@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::2f5b38d2-f166-4fc5-9d48-4f81efc52a00)
+2026-05-17 16:29:58,658 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::2f5b38d2-f166-4fc5-9d48-4f81efc52a00)
+2026-05-17 16:29:58,658 Result is kept for 600 seconds
+2026-05-17 16:29:58,667 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'alex@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::7528b47d-2dbe-4025-8719-195b43dcab78)
+2026-05-17 16:29:58,803 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::7528b47d-2dbe-4025-8719-195b43dcab78)
+2026-05-17 16:29:58,803 Result is kept for 600 seconds
+2026-05-17 16:30:01,042 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 27}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::e606c064-fb95-4a69-8294-03985068ec75)
+2026-05-17 16:30:01,232 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::e606c064-fb95-4a69-8294-03985068ec75)
+2026-05-17 16:30:01,232 Result is kept for 600 seconds
+2026-05-17 16:30:01,242 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00007'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::e0058ddb-354c-4874-8dd5-c247615ce599)
+2026-05-17 16:30:01,375 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::e0058ddb-354c-4874-8dd5-c247615ce599)
+2026-05-17 16:30:01,375 Result is kept for 600 seconds
+2026-05-17 16:30:01,386 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'steve@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::16a5530e-aff5-4cdb-a3d3-64d5a6f1aa1a)
+2026-05-17 16:30:01,514 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::16a5530e-aff5-4cdb-a3d3-64d5a6f1aa1a)
+2026-05-17 16:30:01,514 Result is kept for 600 seconds
+2026-05-17 16:30:01,525 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'steve@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::8886309f-afec-4728-a923-8daeab269880)
+2026-05-17 16:30:01,655 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::8886309f-afec-4728-a923-8daeab269880)
+2026-05-17 16:30:01,656 Result is kept for 600 seconds
+2026-05-17 16:30:05,353 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 19}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::650804a3-c03b-4df4-8d96-749cf7dc1806)
+2026-05-17 16:30:05,511 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::650804a3-c03b-4df4-8d96-749cf7dc1806)
+2026-05-17 16:30:05,511 Result is kept for 600 seconds
+2026-05-17 16:30:05,522 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00003'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::d03488ee-2a36-4dcf-aaa4-640b611a188c)
+2026-05-17 16:30:05,646 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::d03488ee-2a36-4dcf-aaa4-640b611a188c)
+2026-05-17 16:30:05,646 Result is kept for 600 seconds
+2026-05-17 16:30:05,657 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'anirudh@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::bf2d76be-e6ed-40e9-8281-f992cda11861)
+2026-05-17 16:30:05,788 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::bf2d76be-e6ed-40e9-8281-f992cda11861)
+2026-05-17 16:30:05,788 Result is kept for 600 seconds
+2026-05-17 16:30:05,800 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'anirudh@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::1eb02637-7572-4c16-b58d-ff744a074e5e)
+2026-05-17 16:30:05,931 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::1eb02637-7572-4c16-b58d-ff744a074e5e)
+2026-05-17 16:30:05,931 Result is kept for 600 seconds
+2026-05-17 16:36:34,146 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 22}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::0fcfa849-17de-47ff-8a28-c0b722a666b2)
+Traceback (most recent call last):
+  File "apps/frappe/frappe/database/database.py", line 230, in sql
+    self._cursor.execute(query, values)
+  File "env/lib/python3.12/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "env/lib/python3.12/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "env/lib/python3.12/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "env/lib/python3.12/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "env/lib/python3.12/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "env/lib/python3.12/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "env/lib/python3.12/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "env/lib/python3.12/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1213, 'Deadlock found when trying to get lock; try restarting transaction')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "apps/frappe/frappe/utils/background_jobs.py", line 225, in execute_job
+    retval = method(**kwargs)
+             ^^^^^^^^^^^^^^^^
+  File "apps/frappe/frappe/model/delete_doc.py", line 453, in delete_dynamic_links
+    delete_references("Comment", doctype, name)
+  File "apps/frappe/frappe/model/delete_doc.py", line 473, in delete_references
+    frappe.db.delete(
+  File "apps/frappe/frappe/database/database.py", line 1414, in delete
+    return query.run(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "apps/frappe/frappe/database/database.py", line 236, in sql
+    raise frappe.QueryDeadlockError(e) from e
+frappe.exceptions.QueryDeadlockError: (1213, 'Deadlock found when trying to get lock; try restarting transaction')
+
+2026-05-17 16:36:34,990 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 16:36:34,992 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 16:36:34,994 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 16:36:34,997 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00001'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::89df4000-26b4-4b3f-8f9e-0d18fd4dbf1b)
+2026-05-17 16:36:35,120 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::89df4000-26b4-4b3f-8f9e-0d18fd4dbf1b)
+2026-05-17 16:36:35,120 Result is kept for 600 seconds
+2026-05-17 16:36:35,130 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'nadupalle.srikar@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::58f45395-26ed-46cf-a776-c6f15d48a373)
+2026-05-17 16:36:35,253 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::58f45395-26ed-46cf-a776-c6f15d48a373)
+2026-05-17 16:36:35,254 Result is kept for 600 seconds
+2026-05-17 16:36:35,263 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'nadupalle.srikar@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::08ef5791-58e0-4f14-9fb5-5a44ef596a5c)
+2026-05-17 16:36:35,392 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::08ef5791-58e0-4f14-9fb5-5a44ef596a5c)
+2026-05-17 16:36:35,392 Result is kept for 600 seconds
+2026-05-17 16:36:37,160 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 23}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::f9437352-78f5-4353-8b7c-7084bab2cb69)
+2026-05-17 16:36:37,300 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::f9437352-78f5-4353-8b7c-7084bab2cb69)
+2026-05-17 16:36:37,300 Result is kept for 600 seconds
+2026-05-17 16:36:37,310 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00002'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::57a52c6f-83ce-4fdc-8c96-f415de40607f)
+2026-05-17 16:36:37,439 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::57a52c6f-83ce-4fdc-8c96-f415de40607f)
+2026-05-17 16:36:37,439 Result is kept for 600 seconds
+2026-05-17 16:36:37,450 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'revathi@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::29d61982-8d0a-4fdc-899b-f582bb0c4ffd)
+2026-05-17 16:36:37,581 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::29d61982-8d0a-4fdc-899b-f582bb0c4ffd)
+2026-05-17 16:36:37,581 Result is kept for 600 seconds
+2026-05-17 16:36:37,591 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'revathi@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::c98d6bd9-7ea1-4c5c-9e8e-58652cee5ccf)
+2026-05-17 16:36:37,729 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::c98d6bd9-7ea1-4c5c-9e8e-58652cee5ccf)
+2026-05-17 16:36:37,730 Result is kept for 600 seconds
+2026-05-17 16:36:39,956 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 25}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::53370925-05f2-45cc-95e0-22ace773d65e)
+2026-05-17 16:36:40,097 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::53370925-05f2-45cc-95e0-22ace773d65e)
+2026-05-17 16:36:40,097 Result is kept for 600 seconds
+2026-05-17 16:36:40,107 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00005'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::09124a54-a39b-4223-b548-c9b757301272)
+2026-05-17 16:36:40,248 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::09124a54-a39b-4223-b548-c9b757301272)
+2026-05-17 16:36:40,248 Result is kept for 600 seconds
+2026-05-17 16:36:40,258 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'sai@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::33674602-6580-40de-8216-48e8a8c1ffa9)
+2026-05-17 16:36:40,391 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::33674602-6580-40de-8216-48e8a8c1ffa9)
+2026-05-17 16:36:40,391 Result is kept for 600 seconds
+2026-05-17 16:36:40,400 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'sai@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::477c7877-9f61-4f3e-ac21-1e8d23ad72b0)
+2026-05-17 16:36:40,542 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::477c7877-9f61-4f3e-ac21-1e8d23ad72b0)
+2026-05-17 16:36:40,542 Result is kept for 600 seconds
+2026-05-17 16:36:52,292 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 24}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::7cce7fc6-eb4f-411a-b672-95dd20df652e)
+2026-05-17 16:36:52,433 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::7cce7fc6-eb4f-411a-b672-95dd20df652e)
+2026-05-17 16:36:52,433 Result is kept for 600 seconds
+2026-05-17 16:36:52,443 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00004'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::2a0b114d-af89-43af-8db2-8e2677fabb12)
+2026-05-17 16:36:52,567 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::2a0b114d-af89-43af-8db2-8e2677fabb12)
+2026-05-17 16:36:52,567 Result is kept for 600 seconds
+2026-05-17 16:36:52,578 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'anjani@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::37365863-ade1-4b28-8cd1-2da4a1b79c8c)
+2026-05-17 16:36:52,696 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::37365863-ade1-4b28-8cd1-2da4a1b79c8c)
+2026-05-17 16:36:52,696 Result is kept for 600 seconds
+2026-05-17 16:36:52,706 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'anjani@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::860af793-cc5f-4f2c-9215-63ed21250cef)
+2026-05-17 16:36:52,827 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::860af793-cc5f-4f2c-9215-63ed21250cef)
+2026-05-17 16:36:52,827 Result is kept for 600 seconds
+2026-05-17 16:37:15,624 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: nadupalle.srikar@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::afc05e14-1b5d-465b-b7ae-f0b9c324ec58)
+2026-05-17 16:37:16,874 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::afc05e14-1b5d-465b-b7ae-f0b9c324ec58)
+2026-05-17 16:37:16,875 Result is kept for 600 seconds
+2026-05-17 16:37:16,894 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'nadupalle.srikar@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::665567a3-601d-4127-aeda-9bcf79b71f71)
+2026-05-17 16:37:17,627 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::665567a3-601d-4127-aeda-9bcf79b71f71)
+2026-05-17 16:37:17,627 Result is kept for 600 seconds
+2026-05-17 16:38:18,002 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 28}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::002338f9-2733-420f-9488-97608d20f879)
+2026-05-17 16:38:18,148 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::002338f9-2733-420f-9488-97608d20f879)
+2026-05-17 16:38:18,148 Result is kept for 600 seconds
+2026-05-17 16:47:04,164 home-srikar-Desktop-shift_management_system-frappe-bench:long: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.search.website_search.build_index_for_all_routes', kwargs={}, method=<function build_index_for_all_routes at 0x7fcd473762a0>, site='shift.localhost', user='Administrator') (shift.localhost::dabd28cc-5773-46e7-a18f-501521aaff84)
+Retrieving Routes                   : [=                                       ] 3%Retrieving Routes                   : [==                                      ] 6%Retrieving Routes                   : [===                                     ] 9%Retrieving Routes                   : [=====                                   ] 12%Retrieving Routes                   : [======                                  ] 16%Retrieving Routes                   : [=======                                 ] 19%Retrieving Routes                   : [=========                               ] 22%Retrieving Routes                   : [==========                              ] 25%Retrieving Routes                   : [===========                             ] 29%Retrieving Routes                   : [============                            ] 32%Retrieving Routes                   : [==============                          ] 35%Retrieving Routes                   : [===============                         ] 38%Retrieving Routes                   : [================                        ] 41%Retrieving Routes                   : [==================                      ] 45%Retrieving Routes                   : [===================                     ] 48%Retrieving Routes                   : [====================                    ] 51%Retrieving Routes                   : [=====================                   ] 54%Retrieving Routes                   : [=======================                 ] 58%Retrieving Routes                   : [========================                ] 61%Retrieving Routes                   : [=========================               ] 64%Retrieving Routes                   : [===========================             ] 67%Retrieving Routes                   : [============================            ] 70%Retrieving Routes                   : [=============================           ] 74%Retrieving Routes                   : [==============================          ] 77%Retrieving Routes                   : [================================        ] 80%Retrieving Routes                   : [=================================       ] 83%Retrieving Routes                   : [==================================      ] 87%Retrieving Routes                   : [====================================    ] 90%Retrieving Routes                   : [=====================================   ] 93%Retrieving Routes                   : [======================================  ] 96%Retrieving Routes                   : [========================================] 100%
+Building Index                      : [=                                       ] 3%Building Index                      : [==                                      ] 6%Building Index                      : [===                                     ] 9%Building Index                      : [=====                                   ] 12%Building Index                      : [======                                  ] 16%Building Index                      : [=======                                 ] 19%Building Index                      : [=========                               ] 22%Building Index                      : [==========                              ] 25%Building Index                      : [===========                             ] 29%Building Index                      : [============                            ] 32%Building Index                      : [==============                          ] 35%Building Index                      : [===============                         ] 38%Building Index                      : [================                        ] 41%Building Index                      : [==================                      ] 45%Building Index                      : [===================                     ] 48%Building Index                      : [====================                    ] 51%Building Index                      : [=====================                   ] 54%Building Index                      : [=======================                 ] 58%Building Index                      : [========================                ] 61%Building Index                      : [=========================               ] 64%Building Index                      : [===========================             ] 67%Building Index                      : [============================            ] 70%Building Index                      : [=============================           ] 74%Building Index                      : [==============================          ] 77%Building Index                      : [================================        ] 80%Building Index                      : [=================================       ] 83%Building Index                      : [==================================      ] 87%Building Index                      : [====================================    ] 90%Building Index                      : [=====================================   ] 93%Building Index                      : [======================================  ] 96%Building Index                      : [========================================] 100%2026-05-17 16:47:14,954 home-srikar-Desktop-shift_management_system-frappe-bench:long: Job OK (shift.localhost::dabd28cc-5773-46e7-a18f-501521aaff84)
+2026-05-17 16:47:14,954 Result is kept for 600 seconds
+2026-05-17 16:53:46,281 Worker 0741fd9191174a709ff78efefca14a52 [PID 4676]: warm shut down requested
+2026-05-17 16:53:46,283 Unsubscribing from channel rq:pubsub:0741fd9191174a709ff78efefca14a52
+2026-05-17 17:08:10,177 Worker rq:worker:b4509de9c37b4ff2844bd3b8bc20a630 started with PID 28744, version 1.15.1
+2026-05-17 17:08:10,178 Subscribing to channel rq:pubsub:b4509de9c37b4ff2844bd3b8bc20a630
+2026-05-17 17:08:10,179 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 17:08:10,179 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 17:08:10,180 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 17:08:10,181 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 17:14:05,787 Worker rq:worker:8253da0fc3874685923acb12bb859624 started with PID 34881, version 1.15.1
+2026-05-17 17:14:05,787 Subscribing to channel rq:pubsub:8253da0fc3874685923acb12bb859624
+2026-05-17 17:14:05,789 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 17:14:05,790 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 17:14:05,792 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 17:14:05,793 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 17:14:08,933 Worker 8253da0fc3874685923acb12bb859624 [PID 34881]: warm shut down requested
+2026-05-17 17:14:08,934 Unsubscribing from channel rq:pubsub:8253da0fc3874685923acb12bb859624
+2026-05-17 17:14:42,056 Worker rq:worker:ba030a6b04a74500ab9634f603485f19 started with PID 36579, version 1.15.1
+2026-05-17 17:14:42,056 Subscribing to channel rq:pubsub:ba030a6b04a74500ab9634f603485f19
+2026-05-17 17:14:42,057 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 17:14:55,944 Worker ba030a6b04a74500ab9634f603485f19 [PID 36579]: warm shut down requested
+2026-05-17 17:14:55,945 Unsubscribing from channel rq:pubsub:ba030a6b04a74500ab9634f603485f19
+2026-05-17 17:17:08,090 Worker rq:worker:459e53430b8c4ab5bd7eaea8c89fd613 started with PID 39511, version 1.15.1
+2026-05-17 17:17:08,091 Subscribing to channel rq:pubsub:459e53430b8c4ab5bd7eaea8c89fd613
+2026-05-17 17:17:08,093 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 17:21:19,748 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: revathi@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::2ea61785-a9f2-4001-a9bb-f7a46d161315)
+2026-05-17 17:21:20,955 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::2ea61785-a9f2-4001-a9bb-f7a46d161315)
+2026-05-17 17:21:20,955 Result is kept for 600 seconds
+2026-05-17 17:21:20,967 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'revathi@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::814bf0e6-59e9-4acf-abb8-313960b60e5e)
+2026-05-17 17:21:21,339 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::814bf0e6-59e9-4acf-abb8-313960b60e5e)
+2026-05-17 17:21:21,339 Result is kept for 600 seconds
+2026-05-17 17:21:28,854 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: revathi@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::38e6c062-bf5b-4a21-b373-b2bf4f727553)
+2026-05-17 17:21:29,711 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::38e6c062-bf5b-4a21-b373-b2bf4f727553)
+2026-05-17 17:21:29,711 Result is kept for 600 seconds
+2026-05-17 17:21:29,723 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'revathi@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::b1e08750-7748-40ae-a26c-d53a8927e0a0)
+2026-05-17 17:21:30,270 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::b1e08750-7748-40ae-a26c-d53a8927e0a0)
+2026-05-17 17:21:30,271 Result is kept for 600 seconds
+2026-05-17 17:24:51,619 Worker 459e53430b8c4ab5bd7eaea8c89fd613 [PID 39511]: warm shut down requested
+2026-05-17 17:24:51,620 Unsubscribing from channel rq:pubsub:459e53430b8c4ab5bd7eaea8c89fd613
+2026-05-17 17:28:32,777 Worker rq:worker:770f8022f16f43c3ac95d8aa2ace9fde started with PID 47185, version 1.15.1
+2026-05-17 17:28:32,778 Subscribing to channel rq:pubsub:770f8022f16f43c3ac95d8aa2ace9fde
+2026-05-17 17:28:32,780 *** Listening on home-srikar-Desktop-shift_management_system-frappe-bench:short, home-srikar-Desktop-shift_management_system-frappe-bench:default, home-srikar-Desktop-shift_management_system-frappe-bench:long...
+2026-05-17 17:30:42,850 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 29}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::28af6940-ba33-4b46-b007-c61012b6cc32)
+2026-05-17 17:30:42,987 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::28af6940-ba33-4b46-b007-c61012b6cc32)
+2026-05-17 17:30:42,987 Result is kept for 600 seconds
+2026-05-17 17:30:42,993 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00001'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::6dcd48c9-421f-44a4-929d-3cf066ce5092)
+2026-05-17 17:30:43,083 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::6dcd48c9-421f-44a4-929d-3cf066ce5092)
+2026-05-17 17:30:43,083 Result is kept for 600 seconds
+2026-05-17 17:30:43,089 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'nadupalle.srikar@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::fa6da63d-1a42-41f7-a01c-226d684512b4)
+2026-05-17 17:30:43,166 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::fa6da63d-1a42-41f7-a01c-226d684512b4)
+2026-05-17 17:30:43,167 Result is kept for 600 seconds
+2026-05-17 17:30:43,174 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'nadupalle.srikar@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::029ebef7-0dd2-4360-a000-07618e31b938)
+2026-05-17 17:30:43,250 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::029ebef7-0dd2-4360-a000-07618e31b938)
+2026-05-17 17:30:43,250 Result is kept for 600 seconds
+2026-05-17 17:30:45,350 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 31}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::bfdbb1c4-9d42-4d73-856a-2364c26a6a56)
+2026-05-17 17:30:45,448 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::bfdbb1c4-9d42-4d73-856a-2364c26a6a56)
+2026-05-17 17:30:45,448 Result is kept for 600 seconds
+2026-05-17 17:30:45,453 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00002'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::578e5e7b-bd7d-46c3-87df-95cc9d6fccc5)
+2026-05-17 17:30:45,543 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::578e5e7b-bd7d-46c3-87df-95cc9d6fccc5)
+2026-05-17 17:30:45,543 Result is kept for 600 seconds
+2026-05-17 17:30:45,549 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'revathi@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::1a72d5d8-ad85-477b-863b-fa67aba73c2c)
+2026-05-17 17:30:45,627 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::1a72d5d8-ad85-477b-863b-fa67aba73c2c)
+2026-05-17 17:30:45,627 Result is kept for 600 seconds
+2026-05-17 17:30:45,637 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'revathi@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::38eafc7a-13c4-456d-b9cd-d18a3d3e643b)
+2026-05-17 17:30:45,723 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::38eafc7a-13c4-456d-b9cd-d18a3d3e643b)
+2026-05-17 17:30:45,723 Result is kept for 600 seconds
+2026-05-17 17:31:44,381 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: revathi@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::33eedb9b-ba4b-43f7-af20-60b10dad5178)
+2026-05-17 17:31:45,305 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::33eedb9b-ba4b-43f7-af20-60b10dad5178)
+2026-05-17 17:31:45,305 Result is kept for 600 seconds
+2026-05-17 17:31:45,314 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'revathi@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::811f7ce3-81bd-4074-b077-94578a955d02)
+2026-05-17 17:31:45,908 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::811f7ce3-81bd-4074-b077-94578a955d02)
+2026-05-17 17:31:45,908 Result is kept for 600 seconds
+2026-05-17 17:32:23,662 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: anjani@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::d8026bd8-5f5f-497e-bae1-440475f138cb)
+2026-05-17 17:32:24,462 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::d8026bd8-5f5f-497e-bae1-440475f138cb)
+2026-05-17 17:32:24,462 Result is kept for 600 seconds
+2026-05-17 17:32:24,480 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'anjani@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::b85cd353-1c61-48f2-853c-74a26b0bbf3d)
+2026-05-17 17:32:25,027 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::b85cd353-1c61-48f2-853c-74a26b0bbf3d)
+2026-05-17 17:32:25,027 Result is kept for 600 seconds
+2026-05-17 17:33:07,171 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: harsha@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::16e21b9c-6c15-49c0-978f-195aaa51c37b)
+2026-05-17 17:33:08,007 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::16e21b9c-6c15-49c0-978f-195aaa51c37b)
+2026-05-17 17:33:08,007 Result is kept for 600 seconds
+2026-05-17 17:33:08,020 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'harsha@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::6f48cd16-368c-41a2-a5ac-107b9dea0876)
+2026-05-17 17:33:08,549 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::6f48cd16-368c-41a2-a5ac-107b9dea0876)
+2026-05-17 17:33:08,550 Result is kept for 600 seconds
+2026-05-17 17:33:44,208 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: sai@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::3e695154-9124-4f6b-a2af-d90fcb060987)
+2026-05-17 17:33:45,046 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::3e695154-9124-4f6b-a2af-d90fcb060987)
+2026-05-17 17:33:45,046 Result is kept for 600 seconds
+2026-05-17 17:33:45,057 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'sai@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::f91b14e5-b8f0-449b-824e-d4d047ff5014)
+2026-05-17 17:33:45,618 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::f91b14e5-b8f0-449b-824e-d4d047ff5014)
+2026-05-17 17:33:45,618 Result is kept for 600 seconds
+2026-05-17 17:40:30,719 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:short
+2026-05-17 17:40:30,720 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:default
+2026-05-17 17:40:30,721 Cleaning registries for queue: home-srikar-Desktop-shift_management_system-frappe-bench:long
+2026-05-17 17:43:09,091 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 33}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::dce5ae6e-4c3f-44c1-80ef-9af769773ed8)
+2026-05-17 17:43:09,189 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::dce5ae6e-4c3f-44c1-80ef-9af769773ed8)
+2026-05-17 17:43:09,189 Result is kept for 600 seconds
+2026-05-17 17:43:11,828 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 36}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::e334fec8-c56e-436a-910f-feee6960e0ff)
+2026-05-17 17:43:11,916 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::e334fec8-c56e-436a-910f-feee6960e0ff)
+2026-05-17 17:43:11,916 Result is kept for 600 seconds
+2026-05-17 17:45:26,745 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.create_contact', kwargs={'user': <User: sai@gmail.com>, 'ignore_mandatory': True}, method='frappe.core.doctype.user.user.create_contact', site='shift.localhost', user='Administrator') (shift.localhost::cab6e573-51f8-45f5-b0f5-c12ba0018081)
+2026-05-17 17:45:27,626 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::cab6e573-51f8-45f5-b0f5-c12ba0018081)
+2026-05-17 17:45:27,626 Result is kept for 600 seconds
+2026-05-17 17:45:27,637 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.core.doctype.user.user.update_gravatar', kwargs={'name': 'sai@gmail.com'}, method='frappe.core.doctype.user.user.update_gravatar', site='shift.localhost', user='Administrator') (shift.localhost::4443b1e3-cf57-4f75-950a-dbd271f20fdc)
+2026-05-17 17:45:28,204 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::4443b1e3-cf57-4f75-950a-dbd271f20fdc)
+2026-05-17 17:45:28,204 Result is kept for 600 seconds
+2026-05-17 17:46:21,061 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00002'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::b360d80f-8d46-453f-acec-f6bd10eab555)
+2026-05-17 17:46:21,163 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::b360d80f-8d46-453f-acec-f6bd10eab555)
+2026-05-17 17:46:21,163 Result is kept for 600 seconds
+2026-05-17 17:46:21,172 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'anjani@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::dae7794f-0185-42bc-bd81-f1f70c9a3440)
+2026-05-17 17:46:21,256 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::dae7794f-0185-42bc-bd81-f1f70c9a3440)
+2026-05-17 17:46:21,256 Result is kept for 600 seconds
+2026-05-17 17:46:21,263 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'anjani@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::2d7b6f62-405e-4e77-b8d3-99689302bd43)
+2026-05-17 17:46:21,360 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::2d7b6f62-405e-4e77-b8d3-99689302bd43)
+2026-05-17 17:46:21,360 Result is kept for 600 seconds
+2026-05-17 17:46:43,463 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Assignment', 'name': 32}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::01e2738e-084e-4eb1-86d2-5793dbcaccf9)
+2026-05-17 17:46:43,566 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::01e2738e-084e-4eb1-86d2-5793dbcaccf9)
+2026-05-17 17:46:43,566 Result is kept for 600 seconds
+2026-05-17 17:46:43,574 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Shift Employee', 'name': 'EMP-00001'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::7ff8e1f6-80d2-4b46-a208-5f7e0650a33b)
+2026-05-17 17:46:43,659 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::7ff8e1f6-80d2-4b46-a208-5f7e0650a33b)
+2026-05-17 17:46:43,659 Result is kept for 600 seconds
+2026-05-17 17:46:43,667 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'Notification Settings', 'name': 'revathi@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::5ecc7e9d-33ea-44a6-85f8-007ff97bf7b0)
+2026-05-17 17:46:43,755 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::5ecc7e9d-33ea-44a6-85f8-007ff97bf7b0)
+2026-05-17 17:46:43,756 Result is kept for 600 seconds
+2026-05-17 17:46:43,763 home-srikar-Desktop-shift_management_system-frappe-bench:default: frappe.utils.background_jobs.execute_job(event=None, is_async=True, job_name='frappe.model.delete_doc.delete_dynamic_links', kwargs={'doctype': 'User', 'name': 'revathi@gmail.com'}, method='frappe.model.delete_doc.delete_dynamic_links', site='shift.localhost', user='Administrator') (shift.localhost::c5e8186e-7b37-4400-bb9b-4b28d52dc48c)
+2026-05-17 17:46:43,855 home-srikar-Desktop-shift_management_system-frappe-bench:default: Job OK (shift.localhost::c5e8186e-7b37-4400-bb9b-4b28d52dc48c)
+2026-05-17 17:46:43,855 Result is kept for 600 seconds
+2026-05-17 17:51:07,219 Worker 770f8022f16f43c3ac95d8aa2ace9fde [PID 47185]: warm shut down requested
+2026-05-17 17:51:07,220 Unsubscribing from channel rq:pubsub:770f8022f16f43c3ac95d8aa2ace9fde

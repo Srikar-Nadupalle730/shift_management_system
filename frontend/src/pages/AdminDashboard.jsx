@@ -17,13 +17,21 @@ const AdminDashboard = () => {
   const [formData, setFormData] = useState({ first_name: '', last_name: '', email: '', password: '', department: '', role: '' });
   const [editMode, setEditMode] = useState(false);
   const [editTargetId, setEditTargetId] = useState(null);
-  const [assignmentData, setAssignmentData] = useState({ employee: '', shift: 'General', start_date: '', end_date: '', follow_rotation: 0 });
+  const [assignmentData, setAssignmentData] = useState({ employee: '', shift: 'General', start_date: '', end_date: '', follow_rotation: 0, initial_shift: 'General' });
+  const [assignmentType, setAssignmentType] = useState('General');
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [stats, setStats] = useState({ totalEmployees: 0, dayShift: 0, nightShift: 0, rotational: 0 });
   const [isRotating, setIsRotating] = useState(false);
   const [rotationStatus, setRotationStatus] = useState([]);
+  const [confirmConfig, setConfirmConfig] = useState(null);
+  const [toast, setToast] = useState(null);
+
+  const showToast = (message, type = 'success') => {
+    setToast({ message, type });
+    setTimeout(() => setToast(null), 4000);
+  };
 
   useEffect(() => {
     fetchData();
@@ -33,13 +41,20 @@ const AdminDashboard = () => {
 
   const fetchData = async () => {
     try {
+      // Automatically synchronize shift rotations in the background on load
+      try {
+        await api.post('/method/shift_management.api.rotate_shifts');
+      } catch (err) {
+        console.error('Error auto-rotating shifts:', err);
+      }
+
       const empRes = await api.get('/resource/Shift Employee?fields=["name","employee_id","first_name","last_name","email","department","role"]&limit_page_length=100&order_by=department asc');
       setEmployees(empRes.data.data || []);
       
       const shiftRes = await api.get('/resource/Work Shift?fields=["name","shift_name","start_time","end_time","is_rotational"]');
       setShifts(shiftRes.data.data || []);
       
-      const assRes = await api.get('/resource/Shift Assignment?fields=["name","employee","shift","start_date","end_date","follow_rotation"]&limit_page_length=100');
+      const assRes = await api.get('/resource/Shift Assignment?fields=["name","employee","shift","start_date","end_date","follow_rotation","initial_shift"]&limit_page_length=100');
       // Enriched assignments with employee names for calendar
       const enrichedAssignments = (assRes.data.data || []).map(ass => {
         const emp = (empRes.data.data || []).find(e => e.employee_id === ass.employee);
@@ -66,19 +81,7 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleManualRotation = async () => {
-    if (!window.confirm('This will force a shift rotation calculation based on today\'s date. Continue?')) return;
-    setIsRotating(true);
-    try {
-      await api.post('/method/shift_management.api.rotate_shifts');
-      await fetchData();
-      alert('Rotation logic executed successfully!');
-    } catch (err) {
-      alert('Error executing rotation logic');
-    } finally {
-      setIsRotating(false);
-    }
-  };
+
 
   const openAddEmployeeModal = () => {
     setEditMode(false);
@@ -135,7 +138,8 @@ const AdminDashboard = () => {
   const openAddAssignmentModal = () => {
     setAssignmentEditMode(false);
     setAssignmentEditTargetId(null);
-    setAssignmentData({ employee: '', shift: 'General', start_date: '', end_date: '', follow_rotation: 0 });
+    setAssignmentData({ employee: '', shift: 'General', start_date: '', end_date: '', follow_rotation: 0, initial_shift: 'General' });
+    setAssignmentType('General');
     setError('');
     setAssignmentModalOpen(true);
   };
@@ -148,8 +152,14 @@ const AdminDashboard = () => {
       shift: ass.shift,
       start_date: ass.start_date,
       end_date: ass.end_date || '',
-      follow_rotation: ass.follow_rotation || 0
+      follow_rotation: ass.follow_rotation || 0,
+      initial_shift: ass.initial_shift || 'General'
     });
+    if (ass.follow_rotation) {
+      setAssignmentType('Rotational');
+    } else {
+      setAssignmentType(ass.shift || 'General');
+    }
     setError('');
     setAssignmentModalOpen(true);
   };
@@ -161,6 +171,21 @@ const AdminDashboard = () => {
       const payload = { ...assignmentData };
       if (!payload.end_date) payload.end_date = null;
       
+      if (assignmentType === 'Rotational') {
+        payload.follow_rotation = 1;
+        if (!payload.initial_shift) {
+          payload.initial_shift = 'General';
+        }
+        // Force the initial active shift to be the selected starting shift when creating
+        if (!isAssignmentEditMode) {
+          payload.shift = payload.initial_shift;
+        }
+      } else {
+        payload.follow_rotation = 0;
+        payload.initial_shift = null;
+        payload.shift = assignmentType; // 'General' or 'Night'
+      }
+      
       if (isAssignmentEditMode) {
         await api.put(`/resource/Shift Assignment/${assignmentEditTargetId}`, payload);
       } else {
@@ -169,7 +194,7 @@ const AdminDashboard = () => {
       
       setAssignmentModalOpen(false);
       fetchData();
-      setAssignmentData({ employee: '', shift: 'General', start_date: '', end_date: '', follow_rotation: 0 });
+      setAssignmentData({ employee: '', shift: 'General', start_date: '', end_date: '', follow_rotation: 0, initial_shift: 'General' });
       setError('');
     } catch (err) {
       const msg = err.response?.data?._server_messages;
@@ -185,28 +210,40 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleDeleteAssignment = async (name) => {
-    if (window.confirm('Are you sure you want to delete this shift assignment?')) {
-      try {
-        await api.delete(`/resource/Shift Assignment/${name}`);
-        fetchData();
-      } catch (err) {
-        alert('Error deleting assignment');
-        console.error(err.response?.data || err);
-      }
+  const executeDeleteAssignment = async (name) => {
+    try {
+      await api.delete(`/resource/Shift Assignment/${name}`);
+      fetchData();
+      showToast('Shift assignment deleted successfully!', 'success');
+    } catch (err) {
+      showToast('Error deleting assignment', 'error');
+      console.error(err.response?.data || err);
     }
   };
 
-  const handleDeleteEmployee = async (name) => {
-    if (window.confirm('Are you sure you want to delete this employee and all their shift assignments?')) {
-      try {
-        await api.post('/method/shift_management.api.delete_employee', { name });
-        fetchData();
-      } catch (err) {
-        alert('Error deleting employee');
-        console.error(err.response?.data || err);
-      }
+  const handleDeleteAssignment = (name) => {
+    setConfirmConfig({
+      message: 'Are you sure you want to delete this shift assignment?',
+      onConfirm: () => executeDeleteAssignment(name)
+    });
+  };
+
+  const executeDeleteEmployee = async (name) => {
+    try {
+      await api.post('/method/shift_management.api.delete_employee', { name });
+      fetchData();
+      showToast('Employee deleted successfully!', 'success');
+    } catch (err) {
+      showToast('Error deleting employee', 'error');
+      console.error(err.response?.data || err);
     }
+  };
+
+  const handleDeleteEmployee = (name) => {
+    setConfirmConfig({
+      message: 'Are you sure you want to delete this employee and all their shift assignments?',
+      onConfirm: () => executeDeleteEmployee(name)
+    });
   };
 
   const openCredentialModal = (emp) => {
@@ -226,8 +263,9 @@ const AdminDashboard = () => {
       });
       setSuccessMsg('Password updated successfully!');
       setCredentialData({ new_password: '' });
+      showToast('Password updated successfully!', 'success');
     } catch (err) {
-      alert('Error updating credentials');
+      showToast('Error updating credentials', 'error');
       console.error(err.response?.data || err);
     }
   };
@@ -328,9 +366,6 @@ const AdminDashboard = () => {
             <div className="flex justify-between items-center mb-8">
               <h2>Employees</h2>
               <div className="flex gap-4">
-                <button className="btn btn-secondary" onClick={handleManualRotation} disabled={isRotating}>
-                  {isRotating ? 'Rotating...' : '🔄 Run Rotation'}
-                </button>
                 <button className="btn btn-primary" onClick={openAddEmployeeModal}>+ Add Employee</button>
               </div>
             </div>
@@ -453,7 +488,7 @@ const AdminDashboard = () => {
                           </td>
                           <td>
                             {ass.follow_rotation ? (
-                              <span className="badge badge-rotational" style={{ fontSize: '0.7rem' }}>⚙️ Weekly Rotation (Cycle: Day ⟷ Night)</span>
+                              <span className="badge badge-rotational" style={{ fontSize: '0.7rem' }}>⚙️ Weekly Rotation (Starts: {ass.initial_shift || 'General'})</span>
                             ) : (
                               <span className="text-muted" style={{ fontSize: '0.8rem' }}>Fixed Schedule</span>
                             )}
@@ -497,9 +532,6 @@ const AdminDashboard = () => {
                 <h2>Current Rotation Status</h2>
                 <p className="text-muted">Tracking employees on automated shift cycles</p>
               </div>
-              <button className="btn btn-secondary" onClick={handleManualRotation} disabled={isRotating}>
-                {isRotating ? 'Updating...' : '🔄 Recalculate Now'}
-              </button>
             </div>
 
             <div className="table-container">
@@ -544,13 +576,7 @@ const AdminDashboard = () => {
                         <div className="text-muted" style={{ fontSize: '0.75rem' }}>Upcoming Monday</div>
                       </td>
                       <td>
-                        {status.is_out_of_sync ? (
-                          <button className="btn btn-primary" style={{ padding: '0.25rem 0.75rem', fontSize: '0.75rem' }} onClick={handleManualRotation}>
-                            Fix Sync
-                          </button>
-                        ) : (
-                          <span className="text-muted" style={{ fontSize: '0.8rem' }}>None</span>
-                        )}
+                        <span className="text-muted" style={{ fontSize: '0.85rem' }}>Auto-synced</span>
                       </td>
                     </tr>
                   ))}
@@ -634,22 +660,58 @@ const AdminDashboard = () => {
                 </select>
               </div>
               <div className="form-group">
-                <label className="form-label">Initial Shift</label>
-                <select className="form-control" required value={assignmentData.shift} onChange={(e) => setAssignmentData({...assignmentData, shift: e.target.value})}>
-                  <option value="">Select Shift</option>
-                  {shifts.map(shift => <option key={shift.name} value={shift.shift_name}>{shift.shift_name}</option>)}
+                <label className="form-label">Shift Option *</label>
+                <select 
+                  className="form-control" 
+                  required 
+                  value={assignmentType} 
+                  onChange={(e) => {
+                    const type = e.target.value;
+                    setAssignmentType(type);
+                    if (type === 'Rotational') {
+                      setAssignmentData({
+                        ...assignmentData,
+                        follow_rotation: 1,
+                        initial_shift: assignmentData.initial_shift || 'General',
+                        shift: assignmentData.initial_shift || 'General'
+                      });
+                    } else {
+                      setAssignmentData({
+                        ...assignmentData,
+                        follow_rotation: 0,
+                        initial_shift: null,
+                        shift: type
+                      });
+                    }
+                  }}
+                >
+                  <option value="General">General Shift (Fixed)</option>
+                  <option value="Night">Night Shift (Fixed)</option>
+                  <option value="Rotational">Rotational Shift (Alternating)</option>
                 </select>
               </div>
-              <div className="form-group" style={{ flexDirection: 'row', alignItems: 'center', gap: '0.5rem', marginTop: '0.5rem', marginBottom: '1.5rem' }}>
-                <input 
-                  type="checkbox" 
-                  id="follow_rotation" 
-                  style={{ width: '1.25rem', height: '1.25rem' }} 
-                  checked={assignmentData.follow_rotation === 1} 
-                  onChange={(e) => setAssignmentData({...assignmentData, follow_rotation: e.target.checked ? 1 : 0, shift: e.target.checked ? 'General' : assignmentData.shift})} 
-                />
-                <label htmlFor="follow_rotation" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)' }}>Enable Weekly Rotation (Start with Day Shift)</label>
-              </div>
+
+              {assignmentType === 'Rotational' && (
+                <div className="form-group animate-fade-in" style={{ borderLeft: '3px solid var(--primary)', paddingLeft: '1rem', marginTop: '0.5rem', marginBottom: '1rem' }}>
+                  <label className="form-label">Initial Starting Shift *</label>
+                  <select 
+                    className="form-control" 
+                    required 
+                    value={assignmentData.initial_shift || 'General'} 
+                    onChange={(e) => setAssignmentData({
+                      ...assignmentData,
+                      initial_shift: e.target.value,
+                      shift: e.target.value
+                    })}
+                  >
+                    <option value="General">General Shift (Day)</option>
+                    <option value="Night">Night Shift</option>
+                  </select>
+                  <span className="text-muted" style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>
+                    The cycle starts with this shift on the start date, then alternates weekly on Mondays.
+                  </span>
+                </div>
+              )}
               <div className="form-group">
                 <label className="form-label">Start Date *</label>
                 <input type="date" className="form-control" required value={assignmentData.start_date} onChange={(e) => setAssignmentData({...assignmentData, start_date: e.target.value})} />
@@ -690,6 +752,40 @@ const AdminDashboard = () => {
               </div>
             </form>
           </div>
+        </div>
+      )}
+
+      {/* Custom Confirmation Modal */}
+      {confirmConfig && (
+        <div className="modal-overlay" style={{ zIndex: 1000 }}>
+          <div className="modal-content animate-fade-in" style={{ maxWidth: '400px' }}>
+            <h3 className="mb-4">Confirm Action</h3>
+            <p className="mb-8" style={{ color: 'var(--text-muted)' }}>{confirmConfig.message}</p>
+            <div className="flex justify-end gap-4">
+              <button className="btn btn-secondary" onClick={() => setConfirmConfig(null)}>Cancel</button>
+              <button className="btn btn-primary" onClick={() => { confirmConfig.onConfirm(); setConfirmConfig(null); }}>Confirm</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Custom Toast Alert */}
+      {toast && (
+        <div style={{
+          position: 'fixed',
+          top: '20px',
+          right: '20px',
+          zIndex: 10000,
+          padding: '1rem 1.5rem',
+          borderRadius: 'var(--radius)',
+          backgroundColor: toast.type === 'success' ? 'rgba(16, 185, 129, 0.95)' : 'rgba(239, 68, 68, 0.95)',
+          color: 'white',
+          fontWeight: 600,
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3)',
+          backdropFilter: 'blur(8px)',
+          animation: 'fadeIn 0.3s ease'
+        }}>
+          {toast.type === 'success' ? '✅' : '❌'} {toast.message}
         </div>
       )}
     </div>

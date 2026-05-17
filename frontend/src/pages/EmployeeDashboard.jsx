@@ -22,7 +22,7 @@ const EmployeeDashboard = () => {
 
   const fetchAssignments = async () => {
     try {
-      const res = await api.get(`/resource/Shift Assignment?filters=[["employee","=","${profile.name}"]]&fields=["name","shift","start_date","end_date"]`);
+      const res = await api.get(`/resource/Shift Assignment?filters=[["employee","=","${profile.name}"]]&fields=["name","shift","start_date","end_date","follow_rotation","initial_shift"]`);
       setAssignments(res.data.data || []);
     } catch (err) {
       console.error(err);
@@ -182,7 +182,7 @@ const EmployeeDashboard = () => {
                           </span>
                         </td>
                         <td>{detail ? `${detail.start_time} – ${detail.end_time}` : '—'}</td>
-                        <td>{detail ? (detail.is_rotational ? 'Rotational' : 'Fixed') : '—'}</td>
+                        <td>{ass.follow_rotation ? 'Rotational (Weekly)' : 'Fixed'}</td>
                         <td>{ass.start_date}</td>
                         <td>{ass.end_date ? ass.end_date : <span style={{ fontStyle: 'italic', color: 'var(--success)' }}>Ongoing / Indefinite</span>}</td>
                       </tr>

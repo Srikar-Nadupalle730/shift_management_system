@@ -1,15 +1,15 @@
 [
-    "tabDocType State",
-    "tabDocType Action",
-    "tabTag Link",
-    "tabTag",
-    "tabSingles",
-    "tabDocType",
-    "tabDocField",
-    "tabDocPerm",
-    "tabDocType Link",
     "tabInstalled",
+    "tabDocType Action",
+    "tabDocType State",
+    "tabSingles",
     "tabInstalled Application",
-    "tabScheduled Job Type",
-    "tabScheduled"
+    "tabDocField",
+    "tabTag",
+    "tabDocPerm",
+    "tabShift",
+    "tabTag Link",
+    "tabShift Assignment",
+    "tabDocType Link",
+    "tabDocType"
 ]

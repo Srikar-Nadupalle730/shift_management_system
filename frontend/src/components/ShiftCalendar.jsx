@@ -112,8 +112,12 @@ const ShiftCalendar = ({ assignments = [], onShiftClick }) => {
         const msPerWeek = 7 * 24 * 60 * 60 * 1000;
         const weeksPassed = Math.round((currentMonday - startMonday) / msPerWeek);
         
-        // Rotation Cycle: General (Week 0) -> Night (Week 1) -> General (Week 2) ...
-        displayedShift = (weeksPassed % 2 === 0) ? 'General' : 'Night';
+        const initialShift = a.initial_shift || 'General';
+        if (initialShift === 'General') {
+          displayedShift = (weeksPassed % 2 === 0) ? 'General' : 'Night';
+        } else {
+          displayedShift = (weeksPassed % 2 === 0) ? 'Night' : 'General';
+        }
       }
 
       shiftMap[key].push({
