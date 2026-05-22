@@ -28,6 +28,15 @@ const AdminDashboard = () => {
   const [confirmConfig, setConfirmConfig] = useState(null);
   const [toast, setToast] = useState(null);
 
+  const [projects, setProjects] = useState([]);
+  const [timesheets, setTimesheets] = useState([]);
+  const [isProjectModalOpen, setProjectModalOpen] = useState(false);
+  const [isProjectEditMode, setProjectEditMode] = useState(false);
+  const [projectEditTargetId, setProjectEditTargetId] = useState(null);
+  const [projectData, setProjectData] = useState({ project_name: '', description: '', status: 'Active' });
+  const [selectedProjectForTimesheets, setSelectedProjectForTimesheets] = useState(null);
+  const [isProjectTimesheetsModalOpen, setProjectTimesheetsModalOpen] = useState(false);
+
   const showToast = (message, type = 'success') => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 4000);
@@ -76,7 +85,106 @@ const AdminDashboard = () => {
 
       const rotRes = await api.get('/method/shift_management.api.get_rotation_status');
       setRotationStatus(rotRes.data.message || []);
+
+      try {
+        const projRes = await api.get('/method/shift_management.timesheet_api.get_projects');
+        setProjects(projRes.data.message || []);
+        
+        const tsRes = await api.get('/method/shift_management.timesheet_api.get_timesheets');
+        setTimesheets(tsRes.data.message || []);
+      } catch (err) {
+        console.error('Error fetching timesheet data:', err);
+      }
     } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleSaveProject = async (e) => {
+    e.preventDefault();
+    try {
+      if (isProjectEditMode) {
+        await api.put(`/resource/Shift Project/${projectEditTargetId}`, projectData);
+        showToast('Project updated successfully!', 'success');
+      } else {
+        await api.post('/resource/Shift Project', projectData);
+        showToast('Project created successfully!', 'success');
+      }
+      setProjectModalOpen(false);
+      setProjectData({ project_name: '', description: '', status: 'Active' });
+      setProjectEditMode(false);
+      setProjectEditTargetId(null);
+      fetchData();
+    } catch (err) {
+      showToast(isProjectEditMode ? 'Error updating project' : 'Error creating project', 'error');
+    }
+  };
+
+  const openProjectTimesheets = (projectName) => {
+    setSelectedProjectForTimesheets(projectName);
+    setProjectTimesheetsModalOpen(true);
+  };
+
+  const openAddProjectModal = () => {
+    setProjectEditMode(false);
+    setProjectEditTargetId(null);
+    setProjectData({ project_name: '', description: '', status: 'Active' });
+    setProjectModalOpen(true);
+  };
+
+  const openEditProjectModal = (proj) => {
+    setProjectEditMode(true);
+    setProjectEditTargetId(proj.name);
+    setProjectData({ project_name: proj.project_name, description: proj.description || '', status: proj.status });
+    setProjectModalOpen(true);
+  };
+
+  const executeDeleteProject = async (name) => {
+    try {
+      await api.post(`/method/shift_management.timesheet_api.delete_project`, { project_name: name });
+      fetchData();
+      showToast('Project deleted successfully!', 'success');
+    } catch (err) {
+      showToast('Error deleting project', 'error');
+      console.error(err.response?.data || err);
+    }
+  };
+
+  const handleDeleteProject = (name) => {
+    setConfirmConfig({
+      message: 'Are you sure you want to delete this project? Timesheets linked to it will prevent deletion unless they are also deleted.',
+      onConfirm: () => executeDeleteProject(name)
+    });
+  };
+
+  const handleDownloadReport = async (period, project = null) => {
+    try {
+      let url = `/method/shift_management.timesheet_api.download_timesheet_report?period=${period}`;
+      if (project) {
+        url += `&project=${encodeURIComponent(project)}`;
+      }
+      const res = await api.get(url);
+      const data = res.data.message;
+      
+      const byteCharacters = atob(data.content);
+      const byteNumbers = new Array(byteCharacters.length);
+      for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+      }
+      const byteArray = new Uint8Array(byteNumbers);
+      const blob = new Blob([byteArray], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = data.filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(link.href);
+      
+      showToast(`Downloaded ${period} report!`, 'success');
+    } catch (err) {
+      showToast('Error downloading report', 'error');
       console.error(err);
     }
   };
@@ -290,6 +398,13 @@ const AdminDashboard = () => {
   const departments = Object.keys(groupedByDept).sort();
   const assignmentDepts = Object.keys(assignmentsByDept).sort();
 
+  const projectTimesheets = timesheets.filter(t => t.project === selectedProjectForTimesheets);
+  const groupedProjectTimesheets = projectTimesheets.reduce((acc, t) => {
+    if (!acc[t.employee]) acc[t.employee] = [];
+    acc[t.employee].push(t);
+    return acc;
+  }, {});
+
   return (
     <div className="dashboard-grid animate-fade-in">
       <div className="sidebar">
@@ -317,6 +432,11 @@ const AdminDashboard = () => {
           <li>
             <a href="#" className={activeTab === 'rotation' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveTab('rotation'); }}>
               🔄 Rotation Status
+            </a>
+          </li>
+          <li>
+            <a href="#" className={activeTab === 'timesheets' ? 'active' : ''} onClick={(e) => { e.preventDefault(); setActiveTab('timesheets'); }}>
+              ⏱️ Timesheets
             </a>
           </li>
         </ul>
@@ -601,6 +721,84 @@ const AdminDashboard = () => {
             </div>
           </div>
         )}
+
+        {activeTab === 'timesheets' && (
+          <div className="animate-fade-in">
+            <div className="flex justify-between items-center mb-8">
+              <div>
+                <h2>Timesheets</h2>
+                <p className="text-muted">Manage projects, activities, and employee timesheets</p>
+              </div>
+              <div className="flex gap-4">
+                <button className="btn btn-secondary" onClick={openAddProjectModal}>+ Create Project</button>
+              </div>
+            </div>
+
+            <div className="card mb-8">
+              <h3 className="mb-4">Download Reports (Excel)</h3>
+              <div className="flex gap-4">
+                <button className="btn btn-primary" onClick={() => handleDownloadReport('day')}>📥 Daily Report</button>
+                <button className="btn btn-primary" style={{ backgroundColor: '#818cf8', borderColor: '#818cf8' }} onClick={() => handleDownloadReport('weekly')}>📥 Weekly Report</button>
+                <button className="btn btn-primary" style={{ backgroundColor: '#34d399', borderColor: '#34d399' }} onClick={() => handleDownloadReport('monthly')}>📥 Monthly Report</button>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 mb-8">
+              <div className="card">
+                <h3 className="mb-4">Projects</h3>
+                <div className="table-container">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Project Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {projects.map(p => (
+                        <tr key={p.name}>
+                          <td style={{ cursor: 'pointer', color: 'var(--primary)', textDecoration: 'underline' }} onClick={() => openProjectTimesheets(p.name)}>
+                            <strong>{p.project_name}</strong>
+                          </td>
+                          <td><span className="text-muted">{p.description || '—'}</span></td>
+                          <td>
+                            <span className={`badge badge-${p.status === 'Active' ? 'general' : 'night'}`}>
+                              {p.status}
+                            </span>
+                          </td>
+                          <td>
+                            <div className="flex gap-2">
+                              <button className="btn btn-secondary" style={{ padding: '0.25rem 0.75rem', fontSize: '0.8rem' }} onClick={() => openEditProjectModal(p)}>Edit</button>
+                              <button className="btn btn-danger" style={{ padding: '0.25rem 0.75rem', fontSize: '0.8rem' }} onClick={() => handleDeleteProject(p.name)}>Delete</button>
+                            </div>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  {projects.length === 0 && <div className="text-center text-muted p-4">No projects found.</div>}
+                </div>
+              </div>
+              <div className="card">
+                <h3 className="mb-4">Recent Timesheets</h3>
+                <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                  {timesheets.slice(0, 5).map(t => (
+                    <div key={t.name} style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0.5rem', marginBottom: '0.5rem' }}>
+                      <div className="flex justify-between">
+                        <strong>{t.employee}</strong>
+                        <span className="badge badge-general">{t.duration} Hrs</span>
+                      </div>
+                      <div className="text-muted" style={{ fontSize: '0.85rem' }}>{t.date} | {t.project} - {t.activity}</div>
+                    </div>
+                  ))}
+                  {timesheets.length === 0 && <div className="text-muted">No timesheets logged yet.</div>}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Add/Edit Employee Modal */}
@@ -755,6 +953,36 @@ const AdminDashboard = () => {
         </div>
       )}
 
+      {/* Create/Edit Project Modal */}
+      {isProjectModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content animate-fade-in">
+            <h3 className="mb-4">{isProjectEditMode ? 'Edit Project' : 'Create Project'}</h3>
+            <form onSubmit={handleSaveProject}>
+              <div className="form-group">
+                <label className="form-label">Project Name *</label>
+                <input type="text" className="form-control" required disabled={isProjectEditMode} value={projectData.project_name} onChange={(e) => setProjectData({...projectData, project_name: e.target.value})} />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Description</label>
+                <textarea className="form-control" rows="3" value={projectData.description} onChange={(e) => setProjectData({...projectData, description: e.target.value})}></textarea>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Status</label>
+                <select className="form-control" value={projectData.status} onChange={(e) => setProjectData({...projectData, status: e.target.value})}>
+                  <option value="Active">Active</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              </div>
+              <div className="flex justify-end gap-4 mt-8">
+                <button type="button" className="btn btn-secondary" onClick={() => { setProjectModalOpen(false); setProjectEditMode(false); setProjectEditTargetId(null); }}>Cancel</button>
+                <button type="submit" className="btn btn-primary">{isProjectEditMode ? 'Update' : 'Create Project'}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
       {/* Custom Confirmation Modal */}
       {confirmConfig && (
         <div className="modal-overlay" style={{ zIndex: 1000 }}>
@@ -764,6 +992,63 @@ const AdminDashboard = () => {
             <div className="flex justify-end gap-4">
               <button className="btn btn-secondary" onClick={() => setConfirmConfig(null)}>Cancel</button>
               <button className="btn btn-primary" onClick={() => { confirmConfig.onConfirm(); setConfirmConfig(null); }}>Confirm</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Project Timesheets Modal */}
+      {isProjectTimesheetsModalOpen && (
+        <div className="modal-overlay" style={{ zIndex: 1000 }}>
+          <div className="modal-content animate-fade-in" style={{ maxWidth: '800px', width: '90%' }}>
+            <div className="flex justify-between items-center mb-4">
+              <h3 style={{ margin: 0 }}>Timesheets for {selectedProjectForTimesheets}</h3>
+              <div className="flex gap-2">
+                <button className="btn btn-primary" onClick={() => handleDownloadReport('project', selectedProjectForTimesheets)}>📥 Download Excel</button>
+                <button className="btn btn-secondary" onClick={() => setProjectTimesheetsModalOpen(false)}>✕</button>
+              </div>
+            </div>
+            
+            <div className="table-container" style={{ maxHeight: '400px', overflowY: 'auto' }}>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Activity</th>
+                    <th>Duration (Hrs)</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.keys(groupedProjectTimesheets).length > 0 ? (
+                    Object.keys(groupedProjectTimesheets).map(emp => (
+                      <React.Fragment key={emp}>
+                        <tr style={{ backgroundColor: 'var(--surface-hover)' }}>
+                          <td colSpan="6" style={{ fontWeight: 600, color: 'var(--primary)', padding: '0.75rem 1rem' }}>
+                            👤 Employee: {emp}
+                          </td>
+                        </tr>
+                        {groupedProjectTimesheets[emp].map(t => (
+                          <tr key={t.name}>
+                            <td>{t.date}</td>
+                            <td>{t.start_time}</td>
+                            <td>{t.end_time}</td>
+                            <td>{t.activity}</td>
+                            <td><span className="badge badge-general">{t.duration ? t.duration.toFixed(2) : 0}</span></td>
+                            <td><span className="text-muted">{t.description || '—'}</span></td>
+                          </tr>
+                        ))}
+                      </React.Fragment>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="6" className="text-center text-muted p-4">No timesheets found for this project.</td>
+                    </tr>
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

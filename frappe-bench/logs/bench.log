@@ -207,3 +207,69 @@
 2026-05-17 17:28:32,089 INFO /home/srikar/.local/bin/bench watch
 2026-05-17 17:28:32,103 INFO /home/srikar/.local/bin/bench serve --port 8000
 2026-05-17 17:28:32,106 INFO /home/srikar/.local/bin/bench schedule
+2026-05-17 18:00:01,674 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-18 18:00:01,994 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-19 18:00:02,131 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-20 12:00:01,260 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-20 12:31:21,775 INFO /home/srikar/.local/bin/bench start
+2026-05-20 12:31:22,021 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-20 12:31:22,024 INFO /home/srikar/.local/bin/bench schedule
+2026-05-20 12:31:22,028 INFO /home/srikar/.local/bin/bench watch
+2026-05-20 12:31:22,037 INFO /home/srikar/.local/bin/bench worker
+2026-05-20 12:44:51,387 INFO /home/srikar/.local/bin/bench --help
+2026-05-20 12:44:55,671 INFO /home/srikar/.local/bin/bench --site shift.localhost list-apps
+2026-05-20 12:45:35,379 INFO /home/srikar/.local/bin/bench --site shift.localhost migrate
+2026-05-20 12:45:41,827 INFO /home/srikar/.local/bin/bench --site shift.localhost execute shift_management.setup_models.create_doctypes
+2026-05-20 12:46:01,280 INFO /home/srikar/.local/bin/bench --site shift.localhost reload-doc shift_management doctype shift_timesheet
+2026-05-20 12:48:04,417 INFO /home/srikar/.local/bin/bench start
+2026-05-20 12:48:04,685 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-20 12:48:04,686 INFO /home/srikar/.local/bin/bench worker
+2026-05-20 12:48:04,689 INFO /home/srikar/.local/bin/bench watch
+2026-05-20 12:48:04,695 INFO /home/srikar/.local/bin/bench schedule
+2026-05-20 12:51:33,519 INFO /home/srikar/.local/bin/bench --site shift.localhost execute print(frappe.get_all('Shift Timesheet', fields=['name', 'employee', 'status']))
+2026-05-20 12:52:40,883 INFO /home/srikar/.local/bin/bench --site shift.localhost execute print(frappe.get_all('Shift Employee', fields=['name', 'employee_id', 'email']))
+2026-05-20 12:53:33,478 INFO /home/srikar/.local/bin/bench --site shift.localhost execute 
+employees = frappe.get_all('Shift Employee', fields=['name', 'employee_id', 'email'])
+valid_ids = set()
+for e in employees:
+    if e.name: valid_ids.add(e.name)
+    if e.employee_id: valid_ids.add(e.employee_id)
+    if e.email: valid_ids.add(e.email)
+ts_list = frappe.get_all('Shift Timesheet', fields=['name', 'employee'])
+orphaned = [ts.name for ts in ts_list if ts.employee not in valid_ids]
+for t in orphaned:
+    frappe.delete_doc('Shift Timesheet', t, ignore_permissions=True)
+frappe.db.commit()
+print(f'Cleaned up {len(orphaned)} orphaned timesheets.')
+
+2026-05-20 12:53:38,987 INFO /home/srikar/.local/bin/bench --site shift.localhost execute employees = frappe.get_all('Shift Employee', fields=['name', 'employee_id', 'email']); valid_ids = {e.name for e in employees if e.name} | {e.employee_id for e in employees if e.employee_id} | {e.email for e in employees if e.email}; orphaned = [ts.name for ts in frappe.get_all('Shift Timesheet', fields=['name', 'employee']) if ts.employee not in valid_ids]; [frappe.delete_doc('Shift Timesheet', t, ignore_permissions=True) for t in orphaned]; frappe.db.commit(); print(f'Cleaned up {len(orphaned)} orphaned timesheets.')
+2026-05-20 12:53:51,061 INFO /home/srikar/.local/bin/bench --site shift.localhost execute shift_management.api.cleanup_orphans
+2026-05-20 13:16:40,039 INFO /home/srikar/.local/bin/bench --site shift.localhost execute check_doctypes.check_doctypes --path check_doctypes.py
+2026-05-20 13:18:10,086 INFO /home/srikar/.local/bin/bench execute --help
+2026-05-20 13:18:30,013 INFO /home/srikar/.local/bin/bench --site shift.localhost execute shift_management.setup_timesheet_models.create_doctypes
+2026-05-20 13:19:06,877 INFO /home/srikar/.local/bin/bench --site shift.localhost execute shift_management.setup_timesheet_models.create_doctypes
+2026-05-20 13:21:11,322 INFO /home/srikar/.local/bin/bench start
+2026-05-20 13:21:11,593 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-20 13:21:11,599 INFO /home/srikar/.local/bin/bench watch
+2026-05-20 13:21:11,605 INFO /home/srikar/.local/bin/bench schedule
+2026-05-20 13:21:11,608 INFO /home/srikar/.local/bin/bench worker
+2026-05-20 16:28:39,894 INFO /home/srikar/.local/bin/bench start
+2026-05-20 16:28:40,182 INFO /home/srikar/.local/bin/bench watch
+2026-05-20 16:28:40,199 INFO /home/srikar/.local/bin/bench schedule
+2026-05-20 16:28:40,202 INFO /home/srikar/.local/bin/bench serve --port 8000
+2026-05-20 16:28:40,230 INFO /home/srikar/.local/bin/bench worker
+2026-05-20 16:45:41,672 INFO /home/srikar/.local/bin/bench execute frappe.utils.getdate
+2026-05-20 16:46:51,503 INFO /home/srikar/.local/bin/bench mariadb -e SELECT method, error FROM `tabError Log` ORDER BY creation DESC LIMIT 1;
+2026-05-20 16:47:04,524 INFO /home/srikar/.local/bin/bench mariadb -e SELECT method, error FROM `tabError Log` ORDER BY creation DESC LIMIT 1\G
+2026-05-20 16:47:20,465 INFO /home/srikar/.local/bin/bench mariadb -e SELECT error FROM `tabError Log` WHERE method='shift_management.timesheet_api.download_timesheet_report' ORDER BY creation DESC LIMIT 1\G
+2026-05-20 16:49:21,731 INFO /home/srikar/.local/bin/bench mariadb -e SELECT method, error FROM `tabError Log` ORDER BY creation DESC LIMIT 5\G
+2026-05-20 16:50:00,403 INFO /home/srikar/.local/bin/bench execute shift_management.timesheet_api.download_timesheet_report --kwargs {"period": "day"}
+2026-05-20 16:51:04,474 INFO /home/srikar/.local/bin/bench --site shift.localhost execute frappe.utils.getdate()
+2026-05-20 16:51:22,449 INFO /home/srikar/.local/bin/bench --site shift.localhost console
+2026-05-20 17:10:27,469 INFO /home/srikar/.local/bin/bench execute shift_management.timesheet_api.download_timesheet_report --kwargs {"period": "day"}
+2026-05-22 12:00:01,574 INFO /home/srikar/.local/bin/bench --verbose --site all backup
+2026-05-22 12:25:57,072 INFO /home/srikar/.local/bin/bench start
+2026-05-22 12:25:57,358 INFO /home/srikar/.local/bin/bench schedule
+2026-05-22 12:25:57,370 INFO /home/srikar/.local/bin/bench watch
+2026-05-22 12:25:57,370 INFO /home/srikar/.local/bin/bench worker
+2026-05-22 12:25:57,378 INFO /home/srikar/.local/bin/bench serve --port 8000

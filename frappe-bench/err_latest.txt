@@ -1,0 +1,143 @@
+*************************** 1. row ***************************
+method: frappe.model.delete_doc.delete_dynamic_links
+ error: Traceback with variables (most recent call last):
+  File "apps/frappe/frappe/utils/background_jobs.py", line 225, in execute_job
+    retval = method(**kwargs)
+      site = 'shift.localhost'
+      method = <function delete_dynamic_links at 0x7bc0bd8f1120>
+      event = None
+      job_name = 'frappe.model.delete_doc.delete_dynamic_links'
+      kwargs = {'doctype': 'Shift Assignment', 'name': 22}
+      user = 'Administrator'
+      is_async = True
+      retry = 0
+      retval = None
+      method_name = 'frappe.model.delete_doc.delete_dynamic_links'
+      before_job_task = 'frappe.monitor.start'
+  File "apps/frappe/frappe/model/delete_doc.py", line 453, in delete_dynamic_links
+    delete_references("Comment", doctype, name)
+      doctype = 'Shift Assignment'
+      name = 22
+  File "apps/frappe/frappe/model/delete_doc.py", line 473, in delete_references
+    frappe.db.delete(
+      doctype = 'Comment'
+      reference_doctype = 'Shift Assignment'
+      reference_name = 22
+      reference_doctype_field = 'reference_doctype'
+      reference_name_field = 'reference_name'
+  File "apps/frappe/frappe/database/database.py", line 1414, in delete
+    return query.run(**kwargs)
+      self = <frappe.database.mariadb.database.MariaDBDatabase object at 0x7bc0be8fb6b0>
+      doctype = 'Comment'
+      filters = {'reference_doctype': 'Shift Assignment', 'reference_name': 22}
+      debug = False
+      kwargs = {'debug': False}
+      query = DELETE FROM `tabComment` WHERE `reference_doctype`='Shift Assignment' AND `reference_name`=22
+  File "apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+      query = 'DELETE FROM `tabComment` WHERE `reference_doctype`=%(param1)s AND `reference_name`=22'
+      args = ()
+      kwargs = {'debug': False}
+      child_queries = []
+      params = {'param1': 'Shift Assignment'}
+      execute_child_queries = <function patch_query_execute.<locals>.execute_child_queries at 0x7bc0be8996c0>
+      prepare_query = <function patch_query_execute.<locals>.prepare_query at 0x7bc0be899760>
+  File "apps/frappe/frappe/database/database.py", line 236, in sql
+    raise frappe.QueryDeadlockError(e) from e
+      self = <frappe.database.mariadb.database.MariaDBDatabase object at 0x7bc0be8fb6b0>
+      query = 'DELETE FROM `tabComment` WHERE `reference_doctype`=%(param1)s AND `reference_name`=22'
+      values = {'param1': 'Shift Assignment'}
+      as_dict = 0
+      as_list = 0
+      debug = False
+      ignore_ddl = 0
+      auto_commit = 0
+      update = None
+      explain = False
+      run = True
+      pluck = False
+      as_iterator = False
+      trace_id = None
+frappe.exceptions.QueryDeadlockError: (1213, 'Deadlock found when trying to get lock; try restarting transaction')
+*************************** 2. row ***************************
+method: create_employee() missing 2 required positional arguments: 'department' and 'role'
+ error: Traceback with variables (most recent call last):
+  File "apps/frappe/frappe/app.py", line 120, in application
+    response = frappe.api.handle(request)
+      request = <Request 'http://127.0.0.1:8000/api/method/shift_management.api.create_employee' [POST]>
+      response = None
+      rollback = True
+      e = TypeError("create_employee() missing 2 required positional arguments: 'department' and 'role'")
+  File "apps/frappe/frappe/api/__init__.py", line 52, in handle
+    data = endpoint(**arguments)
+      request = <Request 'http://127.0.0.1:8000/api/method/shift_management.api.create_employee' [POST]>
+      endpoint = <function handle_rpc_call at 0x7c3d787acc20>
+      arguments = {'method': 'shift_management.api.create_employee'}
+  File "apps/frappe/frappe/api/v1.py", line 40, in handle_rpc_call
+    return frappe.handler.handle()
+      method = 'shift_management.api.create_employee'
+      frappe = <module 'frappe' from 'apps/frappe/frappe/__init__.py'>
+  File "apps/frappe/frappe/handler.py", line 53, in handle
+    data = execute_cmd(cmd)
+      cmd = 'shift_management.api.create_employee'
+      data = None
+  File "apps/frappe/frappe/handler.py", line 86, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+      cmd = 'shift_management.api.create_employee'
+      from_async = False
+      server_script = None
+      method = <function create_employee at 0x7c3d76c14fe0>
+  File "apps/frappe/frappe/__init__.py", line 1760, in call
+    return fn(*args, **newargs)
+      fn = <function create_employee at 0x7c3d76c14fe0>
+      args = ()
+      kwargs = {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********', 'cmd': 'shift_management.api.create_employee'}
+      newargs = {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********'}
+  File "apps/frappe/frappe/utils/typing_validations.py", line 32, in wrapper
+    return func(*args, **kwargs)
+      args = ()
+      kwargs = {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********'}
+      apply_condition = <function whitelist.<locals>.innerfn.<locals>.<lambda> at 0x7c3d76c142c0>
+      func = <function create_employee at 0x7c3d76c17380>
+builtins.TypeError: create_employee() missing 2 required positional arguments: 'department' and 'role'
+*************************** 3. row ***************************
+method: create_employee() missing 2 required positional arguments: 'department' and 'role'
+ error: Traceback with variables (most recent call last):
+  File "apps/frappe/frappe/app.py", line 120, in application
+    response = frappe.api.handle(request)
+      request = <Request 'http://127.0.0.1:8000/api/method/shift_management.api.create_employee' [POST]>
+      response = None
+      rollback = True
+      e = TypeError("create_employee() missing 2 required positional arguments: 'department' and 'role'")
+  File "apps/frappe/frappe/api/__init__.py", line 52, in handle
+    data = endpoint(**arguments)
+      request = <Request 'http://127.0.0.1:8000/api/method/shift_management.api.create_employee' [POST]>
+      endpoint = <function handle_rpc_call at 0x7c3d787acc20>
+      arguments = {'method': 'shift_management.api.create_employee'}
+  File "apps/frappe/frappe/api/v1.py", line 40, in handle_rpc_call
+    return frappe.handler.handle()
+      method = 'shift_management.api.create_employee'
+      frappe = <module 'frappe' from 'apps/frappe/frappe/__init__.py'>
+  File "apps/frappe/frappe/handler.py", line 53, in handle
+    data = execute_cmd(cmd)
+      cmd = 'shift_management.api.create_employee'
+      data = None
+  File "apps/frappe/frappe/handler.py", line 86, in execute_cmd
+    return frappe.call(method, **frappe.form_dict)
+      cmd = 'shift_management.api.create_employee'
+      from_async = False
+      server_script = None
+      method = <function create_employee at 0x7c3d76c14fe0>
+  File "apps/frappe/frappe/__init__.py", line 1760, in call
+    return fn(*args, **newargs)
+      fn = <function create_employee at 0x7c3d76c14fe0>
+      args = ()
+      kwargs = {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********', 'cmd': 'shift_management.api.create_employee'}
+      newargs = {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********'}
+  File "apps/frappe/frappe/utils/typing_validations.py", line 32, in wrapper
+    return func(*args, **kwargs)
+      args = ()
+      kwargs = {'first_name': 'Srikar', 'last_name': 'Nadupalle', 'email': 'nadupalle.srikar@gmail.com', 'password': '********'}
+      apply_condition = <function whitelist.<locals>.innerfn.<locals>.<lambda> at 0x7c3d76c142c0>
+      func = <function create_employee at 0x7c3d76c17380>
+builtins.TypeError: create_employee() missing 2 required positional arguments: 'department' and 'role'

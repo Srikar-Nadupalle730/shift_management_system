@@ -1,0 +1,3 @@
+2026-05-20 16:51:24,484 INFO ipython === bench console session ===
+2026-05-20 16:51:24,484 INFO ipython from shift_management.timesheet_api import download_timesheet_report; print(download_timesheet_report('day'))
+2026-05-20 16:51:24,484 INFO ipython === session end ===

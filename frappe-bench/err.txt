@@ -1,0 +1,61 @@
+*************************** 1. row ***************************
+method: frappe.model.delete_doc.delete_dynamic_links
+ error: Traceback with variables (most recent call last):
+  File "apps/frappe/frappe/utils/background_jobs.py", line 225, in execute_job
+    retval = method(**kwargs)
+      site = 'shift.localhost'
+      method = <function delete_dynamic_links at 0x7bc0bd8f1120>
+      event = None
+      job_name = 'frappe.model.delete_doc.delete_dynamic_links'
+      kwargs = {'doctype': 'Shift Assignment', 'name': 22}
+      user = 'Administrator'
+      is_async = True
+      retry = 0
+      retval = None
+      method_name = 'frappe.model.delete_doc.delete_dynamic_links'
+      before_job_task = 'frappe.monitor.start'
+  File "apps/frappe/frappe/model/delete_doc.py", line 453, in delete_dynamic_links
+    delete_references("Comment", doctype, name)
+      doctype = 'Shift Assignment'
+      name = 22
+  File "apps/frappe/frappe/model/delete_doc.py", line 473, in delete_references
+    frappe.db.delete(
+      doctype = 'Comment'
+      reference_doctype = 'Shift Assignment'
+      reference_name = 22
+      reference_doctype_field = 'reference_doctype'
+      reference_name_field = 'reference_name'
+  File "apps/frappe/frappe/database/database.py", line 1414, in delete
+    return query.run(**kwargs)
+      self = <frappe.database.mariadb.database.MariaDBDatabase object at 0x7bc0be8fb6b0>
+      doctype = 'Comment'
+      filters = {'reference_doctype': 'Shift Assignment', 'reference_name': 22}
+      debug = False
+      kwargs = {'debug': False}
+      query = DELETE FROM `tabComment` WHERE `reference_doctype`='Shift Assignment' AND `reference_name`=22
+  File "apps/frappe/frappe/query_builder/utils.py", line 87, in execute_query
+    result = frappe.db.sql(query, params, *args, **kwargs)  # nosemgrep
+      query = 'DELETE FROM `tabComment` WHERE `reference_doctype`=%(param1)s AND `reference_name`=22'
+      args = ()
+      kwargs = {'debug': False}
+      child_queries = []
+      params = {'param1': 'Shift Assignment'}
+      execute_child_queries = <function patch_query_execute.<locals>.execute_child_queries at 0x7bc0be8996c0>
+      prepare_query = <function patch_query_execute.<locals>.prepare_query at 0x7bc0be899760>
+  File "apps/frappe/frappe/database/database.py", line 236, in sql
+    raise frappe.QueryDeadlockError(e) from e
+      self = <frappe.database.mariadb.database.MariaDBDatabase object at 0x7bc0be8fb6b0>
+      query = 'DELETE FROM `tabComment` WHERE `reference_doctype`=%(param1)s AND `reference_name`=22'
+      values = {'param1': 'Shift Assignment'}
+      as_dict = 0
+      as_list = 0
+      debug = False
+      ignore_ddl = 0
+      auto_commit = 0
+      update = None
+      explain = False
+      run = True
+      pluck = False
+      as_iterator = False
+      trace_id = None
+frappe.exceptions.QueryDeadlockError: (1213, 'Deadlock found when trying to get lock; try restarting transaction')

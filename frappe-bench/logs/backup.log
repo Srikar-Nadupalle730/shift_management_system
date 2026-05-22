@@ -10,3 +10,33 @@ Backup Summary for shift.localhost at 2026-05-15 18:00:03.679514
 Config  : ./shift.localhost/private/backups/20260515_180002-shift_localhost-site_config_backup.json 170.0B
 Database: ./shift.localhost/private/backups/20260515_180002-shift_localhost-database.sql.gz         243.8KiB
 Backup for Site shift.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_5dd3849cbeb50760 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _5dd3849cbeb50760 | /usr/bin/gzip >> ./shift.localhost/private/backups/20260517_180002-shift_localhost-database.sql.gz
+
+Backup Summary for shift.localhost at 2026-05-17 18:00:02.832037
+Config  : ./shift.localhost/private/backups/20260517_180002-shift_localhost-site_config_backup.json 170.0B
+Database: ./shift.localhost/private/backups/20260517_180002-shift_localhost-database.sql.gz         252.8KiB
+Backup for Site shift.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_5dd3849cbeb50760 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _5dd3849cbeb50760 | /usr/bin/gzip >> ./shift.localhost/private/backups/20260518_180003-shift_localhost-database.sql.gz
+
+Backup Summary for shift.localhost at 2026-05-18 18:00:04.754358
+Config  : ./shift.localhost/private/backups/20260518_180003-shift_localhost-site_config_backup.json 170.0B
+Database: ./shift.localhost/private/backups/20260518_180003-shift_localhost-database.sql.gz         252.8KiB
+Backup for Site shift.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_5dd3849cbeb50760 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _5dd3849cbeb50760 | /usr/bin/gzip >> ./shift.localhost/private/backups/20260519_180003-shift_localhost-database.sql.gz
+
+Backup Summary for shift.localhost at 2026-05-19 18:00:03.593843
+Config  : ./shift.localhost/private/backups/20260519_180003-shift_localhost-site_config_backup.json 170.0B
+Database: ./shift.localhost/private/backups/20260519_180003-shift_localhost-database.sql.gz         252.8KiB
+Backup for Site shift.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_5dd3849cbeb50760 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _5dd3849cbeb50760 | /usr/bin/gzip >> ./shift.localhost/private/backups/20260520_120002-shift_localhost-database.sql.gz
+
+Backup Summary for shift.localhost at 2026-05-20 12:00:02.806366
+Config  : ./shift.localhost/private/backups/20260520_120002-shift_localhost-site_config_backup.json 170.0B
+Database: ./shift.localhost/private/backups/20260520_120002-shift_localhost-database.sql.gz         252.8KiB
+Backup for Site shift.localhost has been successfully completed
+set -o pipefail; /usr/bin/mariadb-dump --user=_5dd3849cbeb50760 --host=127.0.0.1 --port=3306 --password=********** --single-transaction --quick --lock-tables=false _5dd3849cbeb50760 | /usr/bin/gzip >> ./shift.localhost/private/backups/20260522_120002-shift_localhost-database.sql.gz
+
+Backup Summary for shift.localhost at 2026-05-22 12:00:03.173806
+Config  : ./shift.localhost/private/backups/20260522_120002-shift_localhost-site_config_backup.json 170.0B
+Database: ./shift.localhost/private/backups/20260522_120002-shift_localhost-database.sql.gz         261.3KiB
+Backup for Site shift.localhost has been successfully completed
